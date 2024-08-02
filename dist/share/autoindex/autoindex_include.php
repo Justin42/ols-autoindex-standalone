@@ -374,10 +374,10 @@ class Index
 
 	protected function init()
 	{
-		if (empty($_SERVER['LS_AI_PATH'])) {
+		if(str_starts_with(strtolower($_SERVER['REQUEST_URI']), strtolower($_SERVER['PHP_SELF']))) {
 			$this->exit403('[ERROR] Auto Index script can not be accessed directly!');
 		}
-		$this->path = $_SERVER['LS_AI_PATH'];
+		$this->path = $_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI'];
 
 		ini_set('open_basedir', $_SERVER['DOCUMENT_ROOT']);
 
