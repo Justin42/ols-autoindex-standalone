@@ -4,6 +4,13 @@ namespace LiteSpeedAutoIndex;
 
 class UserSettings
 {
+	
+	public static $ASSET_PATH = '/share/autoindex/assets/';
+	
+	public static function getAssetPath($asset)
+	{
+		return UserSettings::$ASSET_PATH.$asset;
+	}
 
 	public static $TIME_FORMAT = 'Y-m-d H:i';
 
@@ -142,7 +149,7 @@ class IconMap
 	public static function img($iconTag)
 	{
 		$me = self::getMap();
-		return '<img class="icon" src="/_autoindex/assets/icons/'
+		return '<img class="icon" src="'.UserSettings::getAssetPath('icons/')
 				. $me->icons[$iconTag][0] . '" alt="' . $me->icons[$iconTag][1] . '">';
 	}
 
@@ -443,7 +450,7 @@ class Index
 
 	protected function getAssetLinks()
 	{
-		return '<link rel="stylesheet" href="/_autoindex/assets/css/autoindex.css" />';
+		return '<link rel="stylesheet" href="'.UserSettings::getAssetPath('css/autoindex.css').'" />';
 	}
 
 	protected function getEndBodyScripts()
@@ -599,9 +606,9 @@ class IndexWithJS extends Index
 
 	protected function getAssetLinks()
 	{
-		return '<link rel="stylesheet" href="/_autoindex/assets/css/autoindex.css" />'
-				. '<script src="/_autoindex/assets/js/tablesort.js"></script>'
-				. '<script src="/_autoindex/assets/js/tablesort.number.js"></script>';
+		return '<link rel="stylesheet" href="'.UserSettings::getAssetPath('css/autoindex.css').'" />'
+				. '<script src="'.UserSettings::getAssetPath('js/tablesort.js').'"></script>'
+				. '<script src="'.UserSettings::getAssetPath('js/tablesort.number.js').'"></script>';
 	}
 
 	protected function getEndBodyScripts()
