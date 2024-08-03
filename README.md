@@ -33,7 +33,7 @@ This removes any dependency on OLS auto indexing. Additional features to better 
 
 #### To force enable for all directories:
 - Enable auto indexing at the vhost level
-- Ensure AutoConfigURI points to the location. `/lsws/share/autoindex_custom/default.php`
+- Ensure AutoIndexURI points to the location. `/lsws/share/autoindex_custom/default.php`
 
 #### To enable for user selected directories:
 - Place .htaccess with rewrite to `/_autoindex/default.php` in desired directories (applies to subdirectories).
@@ -48,4 +48,4 @@ This removes any dependency on OLS auto indexing. Additional features to better 
 Alternatively, a rewrite for a static context can be used instead of .htaccess. See [OpenLiteSpeed Docs *From Document Root .htaccess to VirtualHost Context tab*](https://docs.openlitespeed.org/config/rewriterules/#from-document-root-htaccess-to-virtualhost-context-tab) and [OpenLiteSpeed Docs *Auto-Index - Context Level*](https://docs.openlitespeed.org/config/advanced/autoindex/#context-level). 
 This is generally less preferable as it allows less control for the user. This, combined with the lack of `Options` override support in OLS should be the primary motivation for using any custom auto-indexing script.
 
-A similar goal may be able to be achieved with the unmodified OLS indexing script via a combination AutoConfigURI and .htaccess rewrites, without enabling indexing for the entire Vhost. This has not yet been tested and is otherwise undocumented by OLS. 
+A similar goal may be able to be achieved with the unmodified OLS indexing script via a combination AutoIndexURI and .htaccess rewrites, without enabling indexing for the entire Vhost. This has not yet been tested and is otherwise undocumented by OLS. 
